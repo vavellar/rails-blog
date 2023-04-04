@@ -1,74 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DemoBlog</title>
+    <title>Script de atendimento</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow-y: hidden;
-            margin: 0;  /* overrides default margin */
-        }
-
-        #navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            background-color: white;
-            flex: 0 0 50px; /* flex-grow, flex-shrink, flex-basis */
-            border-bottom: 1px solid #D7DCF0;
-        }
-
-        #wrapper {
-            display: flex;
-            height: calc(100vh - 50px); /* height of body less height of navbar */
-        }
-
-        #sidebar {
-            background-color: white;
-            flex-basis: 15rem;
-            border-right: 1px solid #D7DCF0;
-        }
-
-        #content {
-            background-color: white;
-            flex: 1;
-            overflow: auto; /* triggers scrollbar */
-        }
-    </style>
   </head>
 
   <body>
-    <div id="navbar">
-      <a href="/posts">BLOG</a>
-      <a href="/posts/new">
-        <button class="button is-primary" >
-          Create new post
-        </button>
-      </a>
-    </div>
-    <div id="wrapper">
-      <aside id="sidebar" class="menu">
-        <ul class="menu-list">
-          <% get_posts.each do |post| %>
-            <li>
-              <%= link_to post[:title], '/posts/' + post[:id]%>
-            </li>
-          <% end %>
-        </ul>
-      </aside>
-      <div id="content">
-        <%= yield %>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
       </div>
+    <% end %>
+    <div id="content">
+      <%= yield %>
     </div>
   </body>
 </html>

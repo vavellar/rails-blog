@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem 'bulma-rails', '~> 0.9.4'
 gem 'sass-rails'
 gem 'simple_form', '~> 5.2'
+gem 'bcrypt'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
