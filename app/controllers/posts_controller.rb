@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to 'index'
+    redirect_to root_path
   end
 
   def create

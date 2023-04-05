@@ -11,7 +11,7 @@
             <%= link_to 'Editar', '/posts/' + @post[:id].to_s + '/edit', class: 'button' %>
           </p>
           <p class="level-item">
-            <%= link_to "Deletar", @post, method: "delete", class: 'button is-danger' %>
+            <%= button_to "Deletar", (@post), method: :delete, class: 'button is-danger' %>
           </p>
         </div>
       </nav>
@@ -23,9 +23,6 @@
     <div class="container">
       <%= @post.content %>
     </div>
-    <section class="comments">
-      comments
-    </section>
   </div>
 
 </section>
