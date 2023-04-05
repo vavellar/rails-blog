@@ -9,30 +9,31 @@
 <body>
 <main>
   <div class="columns is-centered is-flex is-align-items-center" style="height: 100vh">
-    <div class="column is-one-third">
-      <h1 class="title has-text-centered">Login</h1>
-      <%= form_with url: 'login', local: true do |f| %>
-        <div class="field">
-          <%= f.label :email, class: 'label' %>
-          <div class="control">
-            <%= f.email_field :email, class: 'input', placeholder: 'Email' %>
-          </div>
+    <div class="box p-6">
+        <div class="is-flex is-justify-content-center mb-6">
+          <%= image_tag "logo_somus.svg" %>
         </div>
-        <div class="field">
-          <%= f.label :password, class: 'label'%>
-          <div class="control">
-            <%= f.password_field :password, class: 'input', placeholder: 'Senha' %>
+        <%= form_with url: 'login', local: true do |f| %>
+          <div class="field">
+            <%= f.label :email, class: 'label' %>
+            <div class="control">
+              <%= f.email_field :email, class: 'input', placeholder: 'Email' %>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <%= f.submit 'Login', class: 'button is-info' %>
+          <div class="field">
+            <%= f.label :password, class: 'label'%>
+            <div class="control">
+              <%= f.password_field :password, class: 'input', placeholder: 'Senha' %>
+            </div>
           </div>
-        </div>
-      <% end %>
+          <div class="field">
+            <div class="control is-justify-content-center is-flex mt-6">
+              <%= f.submit 'Entrar', class: 'button is-info' %>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
 </main>
-<footer></footer>
 </body>
 </html>

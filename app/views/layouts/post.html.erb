@@ -53,13 +53,40 @@
   <a href="/posts">
     <%= image_tag "logo_somus.svg" %>
   </a>
-  <% if logged_in? %>
-    <a href="/posts/new">
-      <button class="button is-info" >
-        Criar novo post
-      </button>
-    </a>
-  <% end %>
+  <div>
+    <div class="dropdown">
+      <div class="dropdown-trigger">
+        <button
+          class="button"
+          aria-haspopup="true"
+          aria-controls="dropdown-menu"
+          onclick="handleOpenDropdown()"
+        >
+          <span>Idioma</span>
+        </button>
+      </div>
+      <div class="dropdown-menu" role="menu" style="min-width: unset">
+        <div class="dropdown-content">
+          <a href="#" class="dropdown-item is-active">
+            PT-BR
+          </a>
+          <a class="dropdown-item">
+            EN-US
+          </a>
+          <a href="#" class="dropdown-item">
+            ES-CH
+          </a>
+        </div>
+      </div>
+    </div>
+    <% if logged_in? %>
+      <a href="/posts/new" class="ml-4">
+        <button class="button is-info" >
+          Criar novo post
+        </button>
+      </a>
+    <% end %>
+  </div>
 </div>
 <div id="wrapper">
   <aside id="sidebar" class="menu">
@@ -75,5 +102,12 @@
     <%= yield %>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  function handleOpenDropdown() {
+    const dropdown = document.querySelector('.dropdown')
+    dropdown.classList.toggle('is-active')
+  }
+</script>
 </body>
 </html>
